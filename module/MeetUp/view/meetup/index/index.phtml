@@ -1,0 +1,30 @@
+
+<?php
+$title = 'MeetUps';
+$this->headTitle($title);
+?>
+
+<h1><?= $this->escapeHtml($title) ?></h1>
+
+<a href="<?= $this->url('meetup/add'); ?>" class="btn btn-primary">Ajouter nouveau MeetUp</a>
+
+<table class="table">
+    <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Début du MeetUp</th>
+        <th>Fin du MeetUp</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($this->meetup as $meet) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($meet->getTitle()) ?></td>
+            <td><?= $this->escapeHtml($meet->getDescription()) ?></td>
+            <td><?= $this->escapeHtml($meet->getBegin()) ?></td>
+            <td><?= $this->escapeHtml($meet->getEnd()) ?></td>
+            <td>
+                <a href="<?= $this->url('meetup/edit', [ 'id' => $meet->getId()]) ?>">Modifier</a>
+                <a href="<?= $this->url('meetup/delete', ['id' => $meet->getId()]) ?>">Supprimer</a>
+        </tr>
+    <?php endforeach; ?>
+</table>

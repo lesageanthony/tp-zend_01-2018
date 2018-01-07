@@ -1,0 +1,11 @@
+<h1>Supprimer un MeetUp</h1>
+
+<?php
+$form = $this->form; /* @var $form \Zend\Form\Form */
+?>
+
+<?= $this->form()->openTag($form); ?>
+<p>Voulez-vous vraiment supprimer ce MeetUp?</p>
+<?= $this->formInput($form->get('edit')) ?>
+
+<?= $this->form()->closeTag($form); ?>

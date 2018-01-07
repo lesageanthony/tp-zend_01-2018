@@ -1,0 +1,16 @@
+<h1>Modifier un MeetUp</h1>
+
+<?php
+$form = $this->form; /* @var $form \Zend\Form\Form */
+?>
+
+<?= $this->form()->openTag($form); ?>
+
+<?= $this->formRow($form->get('title')->setAttributes(['value' => $this->title])) ?> <br>
+<?= $this->formRow($form->get('description')->setAttributes(['value' => $this->description])) ?> <br>
+<?= $this->formRow($form->get('begin')->setAttributes(['value' => $this->begin])) ?> <br>
+<?= $this->formRow($form->get('end')->setAttributes(['value' => $this->end])) ?> <br>
+
+<?= $this->formInput($form->get('edit')) ?>
+
+<?= $this->form()->closeTag($form); ?>
