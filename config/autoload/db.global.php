@@ -11,8 +11,8 @@ return [
                 'params' => [
                     'host'     => $_ENV['SKEL_DB_HOST'] ?? 'localhost',
                     'port'     => $_ENV['SKEL_DB_PORT'] ?? '3306',
-                    'user'     => $_ENV['SKEL_DB_USER'] ?? 'root',
-                    'password' => $_ENV['SKEL_DB_PASS'] ?? 'azertyu123',
+                    'user'     => $_ENV['SKEL_DB_USER'] ?? 'demo',
+                    'password' => $_ENV['SKEL_DB_PASS'] ?? 'demo',
                     'dbname'   => $_ENV['SKEL_DB_NAME'] ?? 'database',
                 ],
             ],

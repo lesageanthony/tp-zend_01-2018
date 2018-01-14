@@ -113,6 +113,7 @@ final class IndexController extends AbstractActionController
         $uri = $request->getUriString();
         $uriExploded = explode('=', $uri);
         $id =  $uriExploded[1];
+
         if ($request->isPost()) {
             $form->setData($request->getPost());
             $meetUp = $this->meetUpRepository->find($id);

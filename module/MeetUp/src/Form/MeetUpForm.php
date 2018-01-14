@@ -8,6 +8,7 @@ use Zend\Form\Element;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilterProviderInterface;
 use Zend\Validator\StringLength;
+use Zend\Validator\Callback;
 
 class MeetUpForm extends Form implements InputFilterProviderInterface
 {
@@ -31,7 +32,7 @@ class MeetUpForm extends Form implements InputFilterProviderInterface
         ]);
 
         $this->add([
-            'type' => Element\Text::class,
+            'type' => Element\Date::class,
             'name' => 'begin',
             'options' => [
                 'label' => 'Début du meetup ',
@@ -39,7 +40,7 @@ class MeetUpForm extends Form implements InputFilterProviderInterface
         ]);
 
         $this->add([
-            'type' => Element\Text::class,
+            'type' => Element\Date::class,
             'name' => 'end',
             'options' => [
                 'label' => 'Fin du meetup ',
@@ -55,12 +56,20 @@ class MeetUpForm extends Form implements InputFilterProviderInterface
         ]);
 
         $this->add([
-        'type' => Element\Submit::class,
-        'name' => 'edit',
-        'attributes' => [
-            'value' => 'Modifier',
-        ],
-    ]);
+            'type' => Element\Submit::class,
+            'name' => 'edit',
+            'attributes' => [
+                'value' => 'Modifier',
+            ],
+        ]);
+
+        $this->add([
+            'type' => Element\Submit::class,
+            'name' => 'delete',
+            'attributes' => [
+                'value' => 'Supprimer',
+            ],
+        ]);
 
     }
 
@@ -72,8 +81,9 @@ class MeetUpForm extends Form implements InputFilterProviderInterface
                     [
                         'name' => StringLength::class,
                         'options' => [
+
                             'min' => 4,
-                            'max' => 49,
+                            'max' => 50,
                         ],
                     ],
                 ],
@@ -84,8 +94,8 @@ class MeetUpForm extends Form implements InputFilterProviderInterface
                     [
                         'name' => StringLength::class,
                         'options' => [
-                            'min' => 1,
-                            'max' => 1999,
+                            'min' => 10,
+                            'max' => 2000,
                         ],
                     ],
                 ],
@@ -94,20 +104,15 @@ class MeetUpForm extends Form implements InputFilterProviderInterface
                 'required' => true,
                 'validators' => [
                     [
-                        'name' => 'date',
+                        'name' => 'Callback',
                         'options' => [
-                            'format' => 'd/m/Y',
-                        ],
-                    ],
-                ],
-            ],
-            'end' => [
-                'required' => true,
-                'validators' => [
-                    [
-                        'name' => 'date',
-                        'options' => [
-                            'format' => 'd/m/Y',
+                            'messages' => array(Callback::INVALID_VALUE => 'Start time must be before end time'),
+                            'callback' => function ($value, $context = []){
+                                if ($value >= $context ['end']){
+                                    return false;
+                                }
+                                return true;
+                            }
                         ],
                     ],
                 ],
