@@ -3,12 +3,21 @@ non utilisation du module I18N car la configuration de la VM ne prenet pas en co
 
 
 docker-compose up -d
+
 npm require doctine/doctrine-orm-module
+
 docker-compose run --rm zf php vendor/bin/doctrine-module orm:info
+
 docker-compose run --rm zf php vendor/bin/doctrine-module orm:schema-tool:update
+
 docker-compose run --rm zf php vendor/bin/doctrine-module orm:schema-tool:update --force
+
 docker-compose run --rm zf php vendor/bin/doctrine-module orm:schema-tool:update --dump-sql
 
+
 npm install --save mocha
+
 npm install --save nightmare
+
 composer require behat/behat
+
