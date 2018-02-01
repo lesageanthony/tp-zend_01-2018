@@ -1,0 +1,34 @@
+Feature: List Meetup
+    In order to see meetups
+    As a anonymous user
+    I want to be able to see all meetups on the application
+
+
+Scenario: I want to see the list of meetups
+    Given I am on the meetup's list page
+        And I can see an empty array meetups with champs for their names, descriptions, begins date and ends date.
+	And I can see 1 button: "ajouter nouveau meetup" 
+    When I click on "ajouter nouveau meetup"
+    Then I should be redirect to the meetup's create page
+
+Scenario: I want to see the list of meetups
+    Given I am on the meetup's list page
+        And I can see an array of all meetups with their names, descriptions, begins date and ends date.
+	And I can see 3 buttons: "ajouter nouveau meetup", "modifier", "supprimer" 
+    When I click on "ajouter nouveau meetup"
+    Then I should be redirect to the meetup's create page
+
+Scenario: I want to see the list of meetups
+    Given I am on the meetup's list page
+        And I can see an array of all meetups with their names, descriptions, begins date and ends date.
+	And I can see 3 buttons: "ajouter nouveau meetup", "modifier", "supprimer" 
+    When I click on "modifier"
+    Then I should be redirect to the meetup's edit page
+
+Scenario: I want to see the list of meetups
+    Given I am on the meetup's list page
+        And I can see an array of all meetups with their names, descriptions, begins date and ends date.
+	And I can see 3 buttons: "ajouter nouveau meetup", "modifier", "supprimer" 
+    When I click on "supprimer"
+    Then I should be redirect to the meetup's remove page
+

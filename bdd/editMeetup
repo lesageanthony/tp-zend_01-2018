@@ -1,0 +1,22 @@
+Feature: Edit Meetup
+    In order to edit a meetup
+    As a anonymous user
+    I want to be able to change information about a meetup on the application
+
+Rules:
+- title must be between 4 and 50 characters long
+- description must be between 10 and 2000 characters long
+- meetup's begin must be before meetup's end
+
+Scenario: I edit a meetup by changing any of these informations: title, description, meetup's begin, meetup's end
+    Given I am on the meetup's edit page
+        And I change the form with title "meetup2", description "long description", begin "01/01/2019" and end "02/01/2019"
+    When I submit the form
+    Then I should be redirect to the list of meetups with my updated meetup placed at the same place he was before
+
+Scenario: I edit a meetup by changing any of these informations: title, description, meetup's begin, meetup's end
+    Given I am on the meetup's edit page
+        And I don't change any informations
+    When I submit the form
+    Then I should be redirect to the list of meetups with my updated meetup placed at the same place he was before
+

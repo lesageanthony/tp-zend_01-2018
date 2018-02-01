@@ -1,0 +1,14 @@
+Feature: Remove Meetup
+    In order to remove a meetup
+    As a anonymous user
+    I want to be able to change information about a meetup on the application
+
+Scenario: I remove a meetup
+    Given I am on the meetup's remove page
+    When I click on the button "Supprimer"
+    Then I should be redirect to the list of meetups without the meetup I deleted
+
+Scenario: I remove a meetup
+    Given I am on the meetup's remove page
+    When I click on the button "Non"
+    Then I should be redirect to the list of meetups with the meetup I selected

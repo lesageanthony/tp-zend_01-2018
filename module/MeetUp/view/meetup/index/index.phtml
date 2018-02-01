@@ -6,7 +6,7 @@ $this->headTitle($title);
 
 <h1><?= $this->escapeHtml($title) ?></h1>
 
-<a href="<?= $this->url('meetup/add'); ?>" class="btn btn-primary">Ajouter nouveau MeetUp</a>
+<a href="<?= $this->url('meetup/add'); ?>" id="create-button" class="btn btn-primary">Ajouter nouveau MeetUp</a>
 
 <table class="table">
     <tr>
@@ -23,8 +23,8 @@ $this->headTitle($title);
             <td><?= $this->escapeHtml($meet->getBegin()) ?></td>
             <td><?= $this->escapeHtml($meet->getEnd()) ?></td>
             <td>
-                <a href="<?= $this->url('meetup/edit', [ 'id' => $meet->getId()]) ?>">Modifier</a>
-                <a href="<?= $this->url('meetup/delete', ['id' => $meet->getId()]) ?>">Supprimer</a>
+                <a id="edit-button" href="<?= $this->url('meetup/edit', [ 'id' => $meet->getId()]) ?>">Modifier</a>
+                <a id="remove-button" href="<?= $this->url('meetup/delete', ['id' => $meet->getId()]) ?>">Supprimer</a>
         </tr>
     <?php endforeach; ?>
 </table>

@@ -1,0 +1,33 @@
+Feature: Create Meetup
+    In order to create a meetup
+    As a anonymous user
+    I want to be able to create a meetup on the application
+
+Rules:
+- title must be between 4 and 50 characters long
+- description must be between 10 and 2000 characters long
+- meetup's begin must be before meetup's end
+
+Scenario: I create a meetup when I fill title, description, meetup's begin, meetup's end
+    Given I am on the meetup's create page
+        And I fill the form with title "meetup1", description "short description", begin "01/01/2018" and end "02/01/2018"
+    When I submit the form
+    Then I should be redirect to the list of meetups with my new meetup placed after other meetup present
+
+Scenario: I create a meetup when I fill title, description, meetup's begin, meetup's end
+    Given I am on the meetup's create page
+        And I fill the form with title "mee", description "short description", begin "01/01/2018" and end "02/01/2018"
+    When I submit the form
+    Then I should see an error on the title saying "the input is less than 4 characters long"
+
+Scenario: I create a meetup when I fill title, description, meetup's begin, meetup's end
+    Given I am on the meetup's create page
+        And I fill the form with title "meetup1", description "short", begin "01/01/2018" and end "02/01/2018"
+    When I submit the form
+    Then I should see an error on the description saying "the input is less than 10 characters long"
+
+Scenario: I create a meetup when I fill title, description, meetup's begin, meetup's end
+    Given I am on the meetup's create page
+        And I fill the form with title "meetup1", description "short description", begin "02/01/2018" and end "01/01/2018"
+    When I submit the form
+    Then I should see an error on the description saying "Start time must be before end time"

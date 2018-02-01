@@ -6,7 +6,7 @@ $form = $this->form; /* @var $form \Zend\Form\Form */
 
 <?= $this->form()->openTag($form); ?>
 <p>Voulez-vous vraiment supprimer ce MeetUp?</p>
-<a href="<?= $this->url('meetup'); ?>" class="btn btn-primary">Non</a>
+<a id="nop" href="<?= $this->url('meetup'); ?>" class="btn btn-primary">Non</a>
 <?= $this->formInput($form->get('delete')) ?>
 
 <?= $this->form()->closeTag($form); ?>
