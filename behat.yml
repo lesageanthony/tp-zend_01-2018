@@ -1,0 +1,15 @@
+default:
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://google.fr
+      goutte: ~
+      browser_name: firefox
+      default_session: selenium2
+      selenium2:
+        wd_host: http://127.0.0.1:4444/wd/hub
+        capabilities:
+          browser: firefox
+          version: 14
+  suites:
+    default:
+      contexts: [FeatureContext, WebContext]
