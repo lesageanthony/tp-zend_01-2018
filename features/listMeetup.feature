@@ -6,7 +6,7 @@ Feature: List Meetup
 
   Scenario: I want to see the button which add meetup
     Given I am on the homepage
-    Then I should see "Ajouter nouveau Meetup"
+    Then I should see "Ajouter nouveau MeetUp"
 
   Scenario: I want to see the array of meetups
     Given I am on the homepage

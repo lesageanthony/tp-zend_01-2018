@@ -13,7 +13,7 @@ return [
             'meetup' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/meetup',
+                    'route'    => '/meetup/',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
