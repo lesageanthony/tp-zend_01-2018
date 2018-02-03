@@ -3,17 +3,16 @@ Feature: List Meetup
   As a anonymous user
   I want to be able to see all meetups on the application
 
-
-  Scenario: I want to see the button which add meetup
-    Given I am on the homepage
-    Then I should see "Ajouter nouveau MeetUp"
-
   Scenario: I want to see the array of meetups
     Given I am on the homepage
     Then I should see "Titre"
     And I should see "Description"
     And I should see "Début du MeetUp"
     And I should see "Fin du MeetUp"
+
+  Scenario: I want to see the add button of a meetup
+    Given I am on the homepage
+    Then I should see "Ajouter nouveau MeetUp"
 
   Scenario: I want to see the edit button of a meetup
     Given I am on the homepage

@@ -32,7 +32,7 @@ return [
                     'add' => [
                         'type' => Literal::class,
                         'options' => [
-                            'route'    => '/new',
+                            'route'    => 'new',
                             'defaults' => [
                                 'action'     => 'add',
                             ],
@@ -41,7 +41,7 @@ return [
                     'edit' => [
                         'type' => Segment::class,
                         'options' => [
-                            'route'    => '/edit[?id=:id]',
+                            'route'    => 'edit[?id=:id]',
                             'constraints' => [
                                 'id' => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ],
@@ -54,7 +54,7 @@ return [
                     'delete' => [
                         'type' => Segment::class,
                         'options' => [
-                            'route'    => '/delete[?id=:id]',
+                            'route'    => 'delete[?id=:id]',
                             'constraints' => [
                                 'id' => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ],

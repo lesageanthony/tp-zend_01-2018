@@ -5,7 +5,7 @@ var Nightmare = require('nightmare'),
 
 nightmare
 //load a url
-    .goto('http://localhost:8080/meetup')
+    .goto('http://localhost:8080/meetup/')
     .wait('.container')
     .wait(2000)
     .click('#edit-button')
